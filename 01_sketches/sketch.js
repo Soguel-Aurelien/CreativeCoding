@@ -1,6 +1,6 @@
 
 let squares = [];
-let chance = [1/3, 1/2, 2/3];
+let chances = [0.3, 0.5, 0.6, 0];
 
 function setup() {
 	createCanvas(400, 400);
@@ -10,11 +10,14 @@ function setup() {
 	const gridSize = 3 * squareSize + 2 * gap;
 	const startX = (width - gridSize) / 2;
 	const startY = (height - gridSize) / 2;
+	console.log("Width: "+width,"Height: "+height,"GridSize: "+gridSize);
+	console.log("StrX: "+startX,"StrY: "+startY);
 
 	for (let row = 0; row < 3; row++) {
 		for (let column = 0; column < 3; column++) {
 			const x = startX + column * (squareSize + gap);
 			const y = startY + row * (squareSize + gap);
+			console.log("X: "+x,"Y: "+y);
 
 			squares.push({
 				x,
@@ -25,25 +28,27 @@ function setup() {
 	}
 }
 
+
 function draw() {
+	frameRate(5);
 	background(255);
 	stroke(0);
-	noFill();
 
 	for (const currentSquare of squares) {
 		square(currentSquare.x, currentSquare.y, currentSquare.size);
 
-        direction=Math.random()<0.5 ? 1 :2;
+		// const direction = Math.floor(Math.random() * 2) + 1;
+		const direction = Math.random();
+		const fraction = random(chances);
+		const part = currentSquare.size*fraction;
 
-        if(direction==1){
-            fraction=random(chance);
-            const offset= square.size*fraction;
-
-            line(currentSquare.x, currentSquare.y+offset, currentSquare.x+square.size, currentSquare.y+offset);
+		if(direction>=0.5){
+            
+            line(currentSquare.x, currentSquare.y+part, currentSquare.x+currentSquare.size, currentSquare.y+part);
+        }else{
+            line(currentSquare.x+part, currentSquare.y, currentSquare.x+part, currentSquare.y+currentSquare.size);
         }
-       
 	}
-
 }
 
 
