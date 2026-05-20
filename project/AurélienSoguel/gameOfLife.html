@@ -30,7 +30,13 @@
     </section>
     <section class="sketch-zone">
       <h2>Launch zone</h2>
-      <p>The sketch loads automatically when the file contains p5.js code.</p>
+      <div class="sketch-controls" aria-label="Generation speed controls">
+        <button type="button" class="speed-button" data-speed="3">Slow</button>
+        <button type="button" class="speed-button active" data-speed="8">Normal</button>
+        <button type="button" class="speed-button" data-speed="20">Fast</button>
+      </div>
+      <div id="bomb-countdown" class="bomb-countdown">Bomb: --</div>
+      <div id="game-of-life-canvas" class="sketch-container"></div>
     </section>
   </main>
   <script src="gameOfLife.js"></script>
