@@ -1,0 +1,10 @@
+1: Meme controller (Sound)
+2: Boosted Game of Life
+3: AI Dodger Game
+4: Useless Data Visualiser
+5: Picture Generation
+6: Song Generator (with lyrics)
+7: AI RageBaiter
+8: Planet Generator
+9: Rock Paper Siscors Survivor
+10: Tree Animator
